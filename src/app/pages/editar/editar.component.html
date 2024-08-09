@@ -1,20 +1,20 @@
 <div class="card-body">
     <form [formGroup]="formVeiculo">
-       <div class="mb-3">
-           <label class="form-label">Ano</label>
-           <input type="text" class="form-control" formControlName="ano">
-           <div class="form-text text-danger" *ngIf="isFormControlInvalid('ano')">
-               O camp deve ser preenchido!
-           </div>
-       </div>
+        <div class="mb-3">
+            <label class="form-label">Ano</label>
+            <input type="text" class="form-control" formControlName="ano">
+            <div class="form-text text-danger" *ngIf="isFormControlInvalid('ano')">
+                O camp deve ser preenchido!
+            </div>
+        </div>
         <div class="mb-3">
             <label class="form-label">Marca</label>
             <select class="form-select form-select-lg mb-3" formControlName="marca">
                 <option *ngFor="let item of marcas" [value]="item.sigla">{{item.nome}}</option>
-              </select>
+            </select>
             <div class="form-text text-danger" *ngIf="isFormControlInvalid('marca')">
-               O campo deve ser preenchido!
-           </div>
+                O campo deve ser preenchido!
+            </div>
         </div>
 
         <div class="mb-3">
@@ -25,7 +25,8 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-primary w-100 mt-2" (click)="veiculo ? editar() : cadastrar()" [disabled]="!formVeiculo.valid" >
+        <button type="button" class="btn btn-primary w-100 mt-2" (click)="veiculo ? editar() : cadastrar()" *ngIf="!isVisualizacao"
+            [disabled]="!formVeiculo.valid">
             {{veiculo ? 'Editar' : 'Cadastrar'}}
         </button>
     </form>

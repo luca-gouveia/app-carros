@@ -37,11 +37,9 @@
                         </span>
                     </button>
 
-                    <button (click)="remover(veiculo.id)" type="button" class="mx-1 btn btn-sm btn-warning">
-                        <span class="material-icons-round">
-                            visibility
-                        </span>
-                    </button>
+                    <a routerLink="/ver/{{veiculo.id}}" class="mx-1 btn btn-sm btn-warning">
+                        <span class="material-icons-round">visibility</span>
+                    </a>
                 </td>
             </tr>
         </tbody>

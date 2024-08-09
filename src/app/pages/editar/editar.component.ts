@@ -16,6 +16,7 @@ export class EditarComponent implements OnInit {
   id: number = 0;
   veiculo: any;
   marcas: any[] = [];
+  isVisualizacao: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -31,6 +32,13 @@ export class EditarComponent implements OnInit {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.recuperarMarcas();
     this.recuperarVeiculo();
+
+    if (this.router.url.includes('/ver')) {
+      this.isVisualizacao = true;
+      this.formVeiculo.controls['marca'].disable();
+      this.formVeiculo.controls['ano'].disable();
+      this.formVeiculo.controls['descricao'].disable();
+    }
   }
 
   recuperarMarcas(): void {
