@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="input-group">
+        <input type="text" class="form-control rounded search-input" placeholder="Buscar por TÍTULO"
+            [(ngModel)]="titulo" />
+        <button type="button" class="btn btn-primary" (click)="buscar()">
+            <span class="material-icons-round text-dark search">search</span>
+        </button>
+        <button type="button" class="btn btn-primary" (click)="mostrarFiltro = !mostrarFiltro">
+            <span class="material-icons-round text-dark search">filter_list</span>
+        </button>
+    </div>
+</div>
+
+<div class="content container row mt-4 bg-dark shadow rounded text-light" *ngIf="mostrarFiltro">
+    <h5>Filtros</h5>
+    <div class="col-3">
+        <input type="text" class="form-control" placeholder="Buscar por DIRETOR" [(ngModel)]="diretor" />
+    </div>
+    <div class="col-3">
+        <input type="text" class="form-control" placeholder="Buscar por ATORES" [(ngModel)]="atores" />
+    </div>
+
+    <div class="col-3">
+        <select class="form-control" name="estado" id="estado" [(ngModel)]="genero">
+            <option value="" selected disabled>Selecione um gênero</option>
+            <option *ngFor="let genero of listaGeneros" [value]="genero">{{genero}}</option>
+        </select>
+    </div>
+
+    <div class="col-3">
+        <button type="button" class="btn btn-primary" (click)="limparFiltro()">Limpar Filtro</button>
+    </div>
+
+</div>
+
+<div class="titulo-container">
+    <div *ngIf="!lista.length" class="ms-3">
+        Nenhum resultado encontrado :(
+    </div>
+    <div class="titulo shadow" *ngFor="let titulo of lista" (click)="abrirTitulo(titulo.id)">
+        <div class="img-titulo">
+            <img src="../../../assets/default-image.jpg" alt="" *ngIf="!titulo.linkImagem">
+        </div>
+        <div class="descricao-titulo">
+            <p>{{ titulo.titulo }}</p>
+        </div>
+        <div class="descricao-titulo nota">
+            <p>{{ titulo?.avaliacao?.toFixed(2) }}
+                <span class="material-icons-round star">star_rate</span>
+            </p>
+        </div>
+    </div>
+</div>

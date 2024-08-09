@@ -1,0 +1,49 @@
+<div class="table-reponsive">
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>Marca</th>
+                <th>Ano</th>
+                <th>Descrição</th>
+                <th>Vendido</th>
+                <th>
+                    Ação
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let veiculo of veiculos">
+                <td class="text-center">{{veiculo.marca}}</td>
+                <td class="text-center">{{veiculo.ano}}</td>
+                <td class="text-center">
+                    <span>{{veiculo.descricao}}</span>
+                </td>
+                <td class="text-center" [ngStyle]="{'color': veiculo.isVendido ? '#9d8f2e' : '#000'}">
+                    <span class="material-icons-round">{{veiculo.isVendido ? 'paid' : 'remove'}}</span>
+                </td>
+                <td class="text-center">
+                    <a routerLink="/editar/{{veiculo.id}}" class="mx-1 btn btn-sm btn-primary">
+                        <span class="material-icons-round">edit</span>
+                    </a>
+
+                    <button (click)="remover(veiculo.id)" type="button" class="mx-1 btn btn-sm btn-danger">
+                        <span class="material-icons-round">delete</span>
+                    </button>
+
+                    <button (click)="vender(veiculo.id)" type="button" class="mx-1 btn btn-sm btn-success"  [disabled]="veiculo.isVendido">
+                        <span class="material-icons-round">
+                            payments
+                        </span>
+                    </button>
+
+                    <button (click)="remover(veiculo.id)" type="button" class="mx-1 btn btn-sm btn-warning">
+                        <span class="material-icons-round">
+                            visibility
+                        </span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+<div class="card-body">
+    <form [formGroup]="formUsuario">
+       <div class="mb-3">
+           <label class="form-label">Nome</label>
+           <input type="text" class="form-control" formControlName="nome">
+           <div class="form-text text-danger" *ngIf="isFormControlInvalid('nome')">
+               O nome deve ser preenchido!
+           </div>
+       </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control" formControlName="email">
+            <div class="form-text text-danger" *ngIf="isFormControlInvalid('email')">
+               O email deve ser preenchido!
+           </div>
+        </div>
+        <div class="mb-3" style="display: none;">
+            <input type="text" class="form-control" formControlName="id">
+        </div>
+
+        <button type="button" class="btn btn-primary w-100 mt-2" (click)="editar()" [disabled]="!formUsuario.valid" >
+            Editar
+        </button>
+    </form>
+</div>

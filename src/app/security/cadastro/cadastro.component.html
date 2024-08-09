@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">
+            <img src="../../../assets/imdb-logo.png" alt="" height="28">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        </div>
+    </div>
+</nav>
+<div class="container d-flex justify-content-center">
+    <div class="col-4">
+        <div class="card shadow round mt-5">
+             <div class="card-header bg-dark text-light">
+                 <h3 class="text-center">Criar conta</h3>
+             </div>
+ 
+             <div class="card-body">
+                 <form [formGroup]="formRegistro">
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-control" formControlName="nome">
+                        <div class="form-text text-danger" *ngIf="isFormControlInvalid('nome')">
+                            O nome deve ser preenchido!
+                        </div>
+                    </div>
+                     <div class="mb-3">
+                         <label class="form-label">Email</label>
+                         <input type="text" class="form-control" formControlName="email">
+                         <div class="form-text text-danger" *ngIf="isFormControlInvalid('email')">
+                            O email deve ser preenchido!
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                         <label class="form-label">Senha</label>
+                         <input type="password" class="form-control" formControlName="senha">
+                         <div class="form-text text-danger" *ngIf="isFormControlInvalid('senha')">
+                            A senha deve ser preenchida!
+                        </div>
+                     </div>
+
+                     <span>Possui uma conta? <a href="/login" class="link"> Acessar</a></span>
+ 
+                     <button type="button" class="btn btn-primary w-100 mt-2" (click)="registrar()" [disabled]="!formRegistro.valid" >
+                         Cadastrar
+                     </button>
+                 </form>
+             </div>
+ 
+        </div>
+    </div>
+</div>
+
+<div class="row fixed-bottom">
+    <div class="container text-center text-light bg-dark p-1">
+        <small>
+            © 2023 - Feito com ❤️ by Luca Gouveia
+        </small>
+    </div>
+</div>

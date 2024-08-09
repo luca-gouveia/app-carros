@@ -1,0 +1,18 @@
+@import 'material-icons/iconfont/material-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;500&family=Outfit:wght@400;500&family=Roboto+Mono&display=swap');
+
+html {
+    font-family: 'Afacad', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background: #b3b3b0;
+    background: -webkit-linear-gradient(top, #b3b3b0 0%, #e3e2dd 500px);
+    background: -o-linear-gradient(top, #b3b3b0 0%, #e3e2dd 500px);
+    background: linear-gradient(top, #b3b3b0 0%, #e3e2dd 500px);
+    background-color: #e3e2dd;
+    background-repeat: no-repeat;
+    margin: 0;
+}

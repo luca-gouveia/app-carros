@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-3">
+        <div class="img-titulo">
+            <img src="../../../assets/default-image.jpg" alt="" *ngIf="!titulo?.linkImagem">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="nome-titulo">
+            <p class="titulo">{{titulo?.titulo}}</p>
+            <p>{{titulo?.descricao}}</p>
+
+            <p>{{titulo?.diretor}}</p>
+            <p>{{titulo?.atores}}</p>
+
+            <p class="bold">Gênero:</p>
+            <ul *ngFor="let item of titulo?.genero">
+                <li>{{item}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-3">
+        <p class="bold">Nota:</p>
+        <p>{{titulo?.avaliacao?.toFixed(2)}}
+            <span class="material-icons-round star" style="font-size: 14px;">star</span>
+        </p>
+        <div id="avaliar" *ngIf="!titulo?.avaliado && isLogado()">
+            <p class="bold">Avaliar:</p>
+            <span (click)="avaliar(1)">1</span>
+            <span (click)="avaliar(2)">2</span>
+            <span (click)="avaliar(3)">3</span>
+            <span (click)="avaliar(4)">4</span>
+        </div>
+        <p *ngIf="titulo?.avaliado">Avaliado!</p>
+    </div>
+</div>

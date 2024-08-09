@@ -1,0 +1,35 @@
+<div class="table-reponsive">
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>
+                    Ação
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of listaUsuarios">
+                <td class="text-center">{{usuario.id}}</td>
+                <td class="text-center">{{usuario.nome}}</td>
+                <td class="text-center">{{usuario.email}}</td>
+                <td class="text-center">{{usuario.role}}</td>
+                <td class="text-center">
+                    <a routerLink="/usuarios/editar/{{usuario.id}}" class="btn btn-sm btn-primary">
+                        <span class="material-icons-round">edit</span>
+                    </a>
+
+                    &nbsp;
+
+                    <button (click)="remover(usuario.id)" type="button" class="btn btn-sm btn-danger">
+                        <span class="material-icons-round">remove_circle</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
